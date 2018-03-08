@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Welcome</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="time">
+    <span>Time: {{time}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card *ngFor="let msg of messages">
+  <mat-card-title>
+    Message from: <span class="author">{{msg.author}}</span>
+  </mat-card-title>
+  <mat-card-content>
+    {{msg.content}}
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>
+    Your message:
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Your name" [(ngModel)]="newMessage.author">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Content" [(ngModel)]="newMessage.content"></textarea>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer>
+    <button (click)="send()" mat-raised-button color="primary">Send</button>
+  </mat-card-footer>
+</mat-card>
+
+
